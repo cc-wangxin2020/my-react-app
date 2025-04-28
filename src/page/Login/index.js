@@ -1,12 +1,27 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import { Card, Form, Input } from 'antd'
 
 export default function Login() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
+  const handleSubmit = (value) => {
+    console.log(value);
+  }
   return (
     <div>
-        <Link to="/detail">登录</Link>
-        <button onClick={() => navigate('/detail/1001/tom')}>登录</button>
+      <Card className=' bg-amber-300'>
+        <Form onFinish={handleSubmit}>
+          <Form.Item name='name'>
+            <Input placeholder='请输入用户名'></Input>
+          </Form.Item>
+          <Form.Item name='password'>
+            <Input placeholder='请输入密码'></Input>
+          </Form.Item>
+          <Form.Item>
+            <button type='submit'>登录</button>
+          </Form.Item>
+        </Form>
+      </Card>
     </div>
   )
 }
